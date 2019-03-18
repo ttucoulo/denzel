@@ -13,7 +13,6 @@ app.use(BodyParser.urlencoded({ extended: true }));
 const CONNECTION_URL = "mongodb+srv://tititcl:password_8@denzel-0tcup.mongodb.net/test?retryWrites=true";
 const DATABASE_NAME = "denzel";
 
-var app = Express();
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -37,7 +36,6 @@ async function sandbox(actor) {
                 throw error;
             }
             database = client.db(DATABASE_NAME);
-            collection = database.collection("people");
             console.log("Connected to `" + DATABASE_NAME + "`!");
         });
     });
@@ -66,14 +64,7 @@ async function sandbox(actor) {
         })
     });
 
-    app.get("/movies/:id", (request, response) => {
-        database.collection("movies").findOne({ "id": request.params.id }, (err, res) => {
-            if(err) return status(500).send(err);
-            response.json(res);
-        });
-    });
-
-    app.get("/movies/search", (request, response) => {
+ app.get("/movies/search", (request, response) => {
         var limit = Number(request.query.limit) || 5;
         var metascore = Number(request.query.metascore) || 70;
 
@@ -87,3 +78,12 @@ async function sandbox(actor) {
             })
         }
     });
+
+    app.get("/movies/:id", (request, response) => {
+        database.collection("movies").findOne({ "id": request.params.id }, (err, res) => {
+            if(err) return status(500).send(err);
+            response.json(res);
+        });
+    });
+
+   
