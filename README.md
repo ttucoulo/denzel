@@ -1,5 +1,19 @@
 # DENZEL
 
+Hello, here are some tools to build correctly the glitch app !
+
+the remote link : https://ttucoulo-denzel-1.glitch.me
+
+add /graphql for graphql features ! 
+
+add /movies for mangodb features ! 
+/movies/populate to populate the movies database
+.....
+
+Thanks !
+
+
+
 > The must-watch Denzel's movies
 
 ![denzel](https://m.media-amazon.com/images/M/MV5BMjE5NDU2Mzc3MV5BMl5BanBnXkFtZTcwNjAwNTE5OQ@@._V1_SY1000_SX750_AL_.jpg)
